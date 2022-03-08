@@ -15,8 +15,8 @@ public class MockAirplaneService implements AirplaneService {
     {
         airplanesWithPlace = new HashMap<>();
         long id = 0;
-        airplanesWithPlace.put(++id, new Airplane(id, "Boeing 737 Classic", "YR-BAC", "Minsk"));
-        airplanesWithPlace.put(++id, new Airplane(id, "Airbus A380-800", "A6-EOT", "Moscow"));
+        airplanesWithPlace.put(++id, Airplane.builder().id(id).productionLine("Boeing 737 Classic").registrationNumber("YR-BAC").place("Minsk").build());
+        airplanesWithPlace.put(++id, Airplane.builder().id(id).productionLine("Airbus A380-800").registrationNumber("A6-EOT").place("Moscow").build());
     }
 
     @Override

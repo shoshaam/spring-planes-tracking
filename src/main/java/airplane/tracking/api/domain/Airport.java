@@ -1,51 +1,33 @@
 package airplane.tracking.api.domain;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
  * Домэйн класс аэропорта
  */
+@Getter
+@Builder(toBuilder = true)
 public class Airport {
+
+    @NonNull
     private Long id;
+
     @SerializedName(value = "iata_code")
+    @NonNull
     private String iataCode;
+
     @SerializedName(value = "airport_name")
+    @NonNull
     private String airportName;
+
     //самолёты в аэропорте, по дефолту null
+    @Setter
+    @Builder.Default
     private List<Airplane> airplanes = null;
-
-    public Airport(Long id, String iataCode, String airportName) {
-        this.id = id;
-        this.iataCode = iataCode;
-        this.airportName = airportName;
-    }
-
-    public Airport(Long id, String iataCode, String airportName, List<Airplane> airplanes) {
-        this.id = id;
-        this.iataCode = iataCode;
-        this.airportName = airportName;
-        this.airplanes = airplanes;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getIataCode(){
-        return this.iataCode;
-    }
-
-    public String getAirportName(){
-        return this.airportName;
-    }
-
-    public List<Airplane> getAirplanes() {
-        return airplanes;
-    }
-
-    public void setAirplanes(List<Airplane> airplanes) {
-        this.airplanes = airplanes;
-    }
 }

@@ -19,13 +19,13 @@ public class MockAirportDAO implements DAOAirportInterface {
     {
         airports = new HashMap<>();
         long id = 0;
-        airports.put(++id, new Airport(1L,"JND55DS", "Moscow"));
-        airports.put(++id, new Airport(2L,"JND475DS", "Minsk"));
+        airports.put(++id, Airport.builder().id(1L).iataCode("JND475DS").airportName("Moscow").build());
+        airports.put(++id, Airport.builder().id(2L).iataCode("JND55DS").airportName("Minsk").build());
 
         ArrayList<Airplane> airplanes = new ArrayList<>();
         id = 0;
-        airplanes.add(new Airplane(++id, "Boeing 737 Classic", "YR-BAC", "Minsk"));
-        airplanes.add(new Airplane(++id, "Airbus A380-800", "A6-EOT", "Moscow"));
+        airplanes.add(Airplane.builder().id(++id).productionLine("Boeing 737 Classic").registrationNumber("YR-BAC").place("Minsk").build());
+        airplanes.add(Airplane.builder().id(++id).productionLine("Airbus A380-800").registrationNumber("A6-EOT").place("Moscow").build());
         airports.get(1L).setAirplanes(airplanes);
     }
 
