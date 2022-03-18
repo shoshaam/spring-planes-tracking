@@ -1,26 +1,33 @@
 package airplane.tracking.api.domain;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
+
+import javax.persistence.*;
 
 /**
  * Домэйн класс самолёта
  */
 @Getter
 @Builder(toBuilder = true)
+@Entity
+@Table(name = "airplanes")
+@NoArgsConstructor @AllArgsConstructor
 public class Airplane {
 
     @NonNull
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @SerializedName(value = "production_line")
     @NonNull
+    @Column(name = "production_line")
     private String productionLine;
 
     @SerializedName(value = "registration_number")
     @NonNull
+    @Column(name = "registration_number")
     private String registrationNumber;
 
     // текущее местонахождение, null по дефолту

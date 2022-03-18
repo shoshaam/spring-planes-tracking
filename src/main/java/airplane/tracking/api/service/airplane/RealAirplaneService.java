@@ -1,10 +1,9 @@
 package airplane.tracking.api.service.airplane;
 
-import airplane.tracking.api.dao.airplane.DAOAirplaneInterface;
 import airplane.tracking.api.domain.Airplane;
+import airplane.tracking.api.repository.AirplaneRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,25 +17,27 @@ import java.util.Optional;
 public class RealAirplaneService implements AirplaneService{
 
     @NonNull
-    private final DAOAirplaneInterface dao;
+    private AirplaneRepository airplaneRepository;
 
     @Override
     public List<Airplane> getAll() {
-        return dao.getAll();
+        return airplaneRepository.findAll();
     }
 
     @Override
     public List<Airplane> getAllWithPlace() {
-        return dao.getAllWithPlace();
+        return airplaneRepository.findAll();
+        //return airplaneRepository.getAllWithPlace();
     }
 
     @Override
     public Optional<Airplane> getByIdWithPlace(Long id) {
-        return dao.getByIdWithPlace(id);
+        return airplaneRepository.findById(id);
+        //return airplaneRepository.getByIdWithPlace(id);
     }
 
     @Override
     public Optional<Airplane> getById(Long id) {
-        return dao.getById(id);
+        return airplaneRepository.findById(id);
     }
 }
