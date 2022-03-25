@@ -1,6 +1,6 @@
 package airplane.tracking.api.service.airplane;
 
-import airplane.tracking.api.domain.Airplane;
+import airplane.tracking.api.domain.airplane.Airplane;
 import airplane.tracking.api.repository.AirplaneRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -26,14 +26,12 @@ public class RealAirplaneService implements AirplaneService{
 
     @Override
     public List<Airplane> getAllWithPlace() {
-        return airplaneRepository.findAll();
-        //return airplaneRepository.getAllWithPlace();
+        return airplaneRepository.getAllWithPlace();
     }
 
     @Override
     public Optional<Airplane> getByIdWithPlace(Long id) {
-        return airplaneRepository.findById(id);
-        //return airplaneRepository.getByIdWithPlace(id);
+        return airplaneRepository.getByIdWithPlace(id);
     }
 
     @Override

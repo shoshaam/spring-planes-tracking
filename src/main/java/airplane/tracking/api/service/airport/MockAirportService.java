@@ -1,6 +1,7 @@
 package airplane.tracking.api.service.airport;
 
-import airplane.tracking.api.domain.Airport;
+import airplane.tracking.api.domain.airplane.AirplaneInAirport;
+import airplane.tracking.api.domain.airport.Airport;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -34,7 +35,9 @@ public class MockAirportService implements AirportService {
     }
 
     @Override
-    public Optional<Airport> getAirplanesInformationById(Long id) {
-        return Optional.ofNullable(airports.get(id));
+    public List<AirplaneInAirport> getAirplanesInformationById(Long id) {
+        Map<Long, AirplaneInAirport> airplanesWithPlace = new HashMap<>();
+        airplanesWithPlace.put(++id, new AirplaneInAirport(220L, "Airbus A380-800", "A6-EOT", "arrives"));
+        return new ArrayList<>(airplanesWithPlace.values());
     }
 }

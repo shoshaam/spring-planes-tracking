@@ -1,6 +1,6 @@
 package airplane.tracking.api.controller;
 
-import airplane.tracking.api.domain.Airplane;
+import airplane.tracking.api.domain.airplane.Airplane;
 import airplane.tracking.api.service.airplane.AirplaneService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package airplane.tracking.api.domain;
+package airplane.tracking.api.domain.airplane;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Builder(toBuilder = true)
 @Entity
 @Table(name = "airplanes")
+@SecondaryTable(name = "airplanes_with_place", pkJoinColumns = @PrimaryKeyJoinColumn(name = "id"))
 @NoArgsConstructor @AllArgsConstructor
 public class Airplane {
 
@@ -30,11 +31,8 @@ public class Airplane {
     @Column(name = "registration_number")
     private String registrationNumber;
 
-    // текущее местонахождение, null по дефолту
-    @Builder.Default
-    private String place = null;
-
-    // текущий статус (прибывает/отбывает) null по дефолту
-    @Builder.Default
-    private Status status = null;
+    @SerializedName(value = "place")
+    @NonNull
+    @Column(name = "where_airplane_is", table = "airplanes_with_place")
+    private String place;
 }

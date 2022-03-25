@@ -1,4 +1,4 @@
-package airplane.tracking.api.domain;
+package airplane.tracking.api.domain.airport;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
@@ -30,9 +30,4 @@ public class Airport {
     @NonNull
     @Column(name = "airport_name")
     private String airportName;
-
-    //самолёты в аэропорте, по дефолту null
-    /*@Setter
-    @Builder.Default
-    private List<Airplane> airplanes = null;*/
 }

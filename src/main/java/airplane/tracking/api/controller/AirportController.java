@@ -1,6 +1,7 @@
 package airplane.tracking.api.controller;
 
-import airplane.tracking.api.domain.Airport;
+import airplane.tracking.api.domain.airplane.AirplaneInAirport;
+import airplane.tracking.api.domain.airport.Airport;
 import airplane.tracking.api.service.airport.AirportService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -33,8 +34,7 @@ public class AirportController {
 
     @GetMapping("/{id}/airplanes")
     @ResponseBody
-    Airport getAirportAirplanesListById(@PathVariable Long id) throws ResponseStatusException {
-        return service.getAirplanesInformationById(id).orElseThrow(() ->
-                new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no airport with this id"));
+    List<AirplaneInAirport> getAirportAirplanesListById(@PathVariable Long id) throws ResponseStatusException {
+        return service.getAirplanesInformationById(id);
     }
 }
