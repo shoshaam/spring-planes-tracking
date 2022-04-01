@@ -1,7 +1,7 @@
 package airplane.tracking.api.service.airport;
 
-import airplane.tracking.api.domain.Airplane;
-import airplane.tracking.api.domain.Airport;
+import airplane.tracking.api.domain.airplane.AirplaneInAirport;
+import airplane.tracking.api.domain.airport.Airport;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -22,12 +22,6 @@ public class MockAirportService implements AirportService {
         airports.put(++id, Airport.builder().id(1L).iataCode("JND55DS").airportName("Minsk").build());
         airports.put(++id, Airport.builder().id(2L).iataCode("JND475DS").airportName("Moscow").build());
 
-        ArrayList<Airplane> airplanes = new ArrayList<>();
-        id = 0;
-        airplanes.add(Airplane.builder().id(++id).productionLine("Boeing 737 Classic").registrationNumber("YR-BAC").place("Minsk").build());
-        airplanes.add(Airplane.builder().id(++id).productionLine("Airbus A380-800").registrationNumber("A6-EOT").place("Moscow").build());
-        airports.get(1L).setAirplanes(airplanes);
-
     }
 
     @Override
@@ -41,7 +35,9 @@ public class MockAirportService implements AirportService {
     }
 
     @Override
-    public Optional<Airport> getAirplanesInformationById(Long id) {
-        return Optional.ofNullable(airports.get(id));
+    public List<AirplaneInAirport> getAirplanesInformationById(Long id) {
+        Map<Long, AirplaneInAirport> airplanesWithPlace = new HashMap<>();
+        airplanesWithPlace.put(++id, new AirplaneInAirport(220L, "Airbus A380-800", "A6-EOT", "arrives"));
+        return new ArrayList<>(airplanesWithPlace.values());
     }
 }

@@ -1,6 +1,7 @@
 package airplane.tracking.api.service.airport;
 
-import airplane.tracking.api.domain.Airport;
+import airplane.tracking.api.domain.airplane.AirplaneInAirport;
+import airplane.tracking.api.domain.airport.Airport;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,11 +25,11 @@ public interface AirportService{
     Optional<Airport> getById(Long id);
 
     /**
-     * Возвращает объект с информацией об аэропорте с заданным айди и доп информацией о прилетающих/вылетающих самолётах
+     * Возвращает список какие в данный момент самолёты должны прибыть или убыть из аэропорта
      * @param id - айди объекта
      * @return - объект
      */
-    Optional<Airport> getAirplanesInformationById(Long id);
+    List<AirplaneInAirport> getAirplanesInformationById(Long id);
 
 }
 
