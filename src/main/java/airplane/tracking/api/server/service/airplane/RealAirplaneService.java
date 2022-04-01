@@ -1,7 +1,7 @@
-package airplane.tracking.api.service.airplane;
+package airplane.tracking.api.server.service.airplane;
 
-import airplane.tracking.api.domain.airplane.Airplane;
-import airplane.tracking.api.repository.AirplaneRepository;
+import airplane.tracking.api.db.domain.airplane.Airplane;
+import airplane.tracking.api.db.repository.AirplaneRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

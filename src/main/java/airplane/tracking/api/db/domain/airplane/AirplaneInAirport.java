@@ -1,4 +1,4 @@
-package airplane.tracking.api.domain.airplane;
+package airplane.tracking.api.db.domain.airplane;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.*;

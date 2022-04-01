@@ -1,9 +1,11 @@
-package airplane.tracking.api.domain.airport;
+package airplane.tracking.api.db.domain;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Домэйн класс аэропорта
@@ -14,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "airports")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Airport {
+public class Airport implements Serializable {
 
     @NonNull
     @Id
@@ -24,6 +26,7 @@ public class Airport {
     @SerializedName(value = "iata_code")
     @NonNull
     @Column(name = "iata_code")
+    @NaturalId
     private String iataCode;
 
     @SerializedName(value = "airport_name")

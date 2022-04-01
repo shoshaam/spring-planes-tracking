@@ -1,7 +1,7 @@
-package airplane.tracking.api.service.airport;
+package airplane.tracking.api.server.service.airport;
 
-import airplane.tracking.api.domain.airplane.AirplaneInAirport;
-import airplane.tracking.api.domain.airport.Airport;
+import airplane.tracking.api.db.domain.airplane.AirplaneInAirport;
+import airplane.tracking.api.db.domain.Airport;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

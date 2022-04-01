@@ -1,6 +1,6 @@
-package airplane.tracking.api.repository;
+package airplane.tracking.api.db.repository;
 
-import airplane.tracking.api.domain.airplane.AirplaneInAirport;
+import airplane.tracking.api.db.domain.airplane.AirplaneInAirport;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

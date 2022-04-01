@@ -1,6 +1,6 @@
-package airplane.tracking.api.service.airplane;
+package airplane.tracking.api.server.service.airplane;
 
-import airplane.tracking.api.domain.airplane.Airplane;
+import airplane.tracking.api.db.domain.airplane.Airplane;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

@@ -1,6 +1,6 @@
-package airplane.tracking.api.repository;
+package airplane.tracking.api.db.repository;
 
-import airplane.tracking.api.domain.airplane.Airplane;
+import airplane.tracking.api.db.domain.airplane.Airplane;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,6 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface AirplaneRepository extends JpaRepository<Airplane, Long> {
+
+    Airplane findByRegistrationNumber(String registrationNumber);
 
     @Query(nativeQuery = true,
             value = "SELECT * FROM airplanes_with_place")

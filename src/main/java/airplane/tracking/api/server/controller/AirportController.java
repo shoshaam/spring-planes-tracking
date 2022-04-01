@@ -1,8 +1,8 @@
-package airplane.tracking.api.controller;
+package airplane.tracking.api.server.controller;
 
-import airplane.tracking.api.domain.airplane.AirplaneInAirport;
-import airplane.tracking.api.domain.airport.Airport;
-import airplane.tracking.api.service.airport.AirportService;
+import airplane.tracking.api.db.domain.airplane.AirplaneInAirport;
+import airplane.tracking.api.db.domain.Airport;
+import airplane.tracking.api.server.service.airport.AirportService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;

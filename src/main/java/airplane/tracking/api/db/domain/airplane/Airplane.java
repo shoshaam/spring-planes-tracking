@@ -1,9 +1,11 @@
-package airplane.tracking.api.domain.airplane;
+package airplane.tracking.api.db.domain.airplane;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Домэйн класс самолёта
@@ -14,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "airplanes")
 @SecondaryTable(name = "airplanes_with_place", pkJoinColumns = @PrimaryKeyJoinColumn(name = "id"))
 @NoArgsConstructor @AllArgsConstructor
-public class Airplane {
+public class Airplane implements Serializable {
 
     @NonNull
     @Id
@@ -29,10 +31,10 @@ public class Airplane {
     @SerializedName(value = "registration_number")
     @NonNull
     @Column(name = "registration_number")
+    @NaturalId
     private String registrationNumber;
 
     @SerializedName(value = "place")
-    @NonNull
     @Column(name = "where_airplane_is", table = "airplanes_with_place")
     private String place;
 }
